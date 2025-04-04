@@ -66,7 +66,9 @@ if __name__=='__main__':
         logger.error("Failed to create Spark Session")
         raise
 
-
+    """
+    Test Git
+    """
     jdbc_url = "jdbc:postgresql://localhost:5432/postgres"
     query = "(select * from ms_projects) As Query"
     connection_properties = {
