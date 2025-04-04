@@ -69,6 +69,9 @@ if __name__=='__main__':
     """
     Test Git
     """
+    """
+    Test Git New 2
+    """
     jdbc_url = "jdbc:postgresql://localhost:5432/postgres"
     query = "(select * from ms_projects) As Query"
     connection_properties = {
