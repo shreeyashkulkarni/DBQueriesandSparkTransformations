@@ -1,84 +1,56 @@
-2025-04-05 02:48:06,910 - INFO - Spark Application Start
+2025-04-08 00:36:06,566 - INFO - Start Application
 Setting default log level to "WARN".
 To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
-2025-04-05 02:48:18,359 - INFO - Successfully Created Spark Session
-2025-04-05 02:48:21,132 - INFO - TABLE : ms_projects
-[Stage 0:>                                                          (0 + 1) / 1]                                                                                +---+---------+------+
-|id |title    |budget|
-+---+---------+------+
-|1  |Project1 |29498 |
-|2  |Project2 |32487 |
-|3  |Project3 |43909 |
-|4  |Project4 |15776 |
-|5  |Project5 |36268 |
-|6  |Project6 |41611 |
-|7  |Project7 |34003 |
-|8  |Project8 |49284 |
-|9  |Project9 |32341 |
-|10 |Project10|47587 |
-|11 |Project11|11705 |
-|12 |Project12|10468 |
-|13 |Project13|43238 |
-|14 |Project14|30014 |
-|15 |Project15|48116 |
-|16 |Project16|19922 |
-|17 |Project17|19061 |
-|18 |Project18|10302 |
-|19 |Project19|44986 |
-|20 |Project20|19497 |
-+---+---------+------+
+2025-04-08 00:36:24,771 - INFO - Table : AirBnb apartments
+[Stage 0:>                                                          (0 + 1) / 1]                                                                                +-------+------------+--------------+------+----------+-------+---------+
+|host_id|apartment_id|apartment_type|n_beds|n_bedrooms|country|city     |
++-------+------------+--------------+------+----------+-------+---------+
+|0      |A1          |Room          |1     |1         |USA    |NewYork  |
+|0      |A2          |Room          |1     |1         |USA    |NewJersey|
+|0      |A3          |Room          |1     |1         |USA    |NewJersey|
+|1      |A4          |Apartment     |2     |1         |USA    |Houston  |
+|1      |A5          |Apartment     |2     |1         |USA    |LasVegas |
+|3      |A7          |Penthouse     |3     |3         |China  |Tianjin  |
+|3      |A8          |Penthouse     |5     |5         |China  |Beijing  |
+|4      |A9          |Apartment     |2     |1         |Mali   |Bamako   |
+|5      |A10         |Room          |3     |1         |Mali   |Segou    |
++-------+------------+--------------+------+----------+-------+---------+
 
-2025-04-05 02:48:23,594 - INFO - TABLE : ms_emp_projects
-+------+----------+
-|emp_id|project_id|
-+------+----------+
-|10592 |1         |
-|10593 |2         |
-|10594 |3         |
-|10595 |4         |
-|10596 |5         |
-|10597 |6         |
-|10598 |7         |
-|10599 |8         |
-|10600 |9         |
-|10601 |10        |
-|10602 |11        |
-|10603 |12        |
-|10604 |13        |
-|10605 |14        |
-|10606 |15        |
-|10607 |16        |
-|10608 |17        |
-|10609 |18        |
-|10610 |19        |
-|10611 |20        |
-+------+----------+
+2025-04-08 00:36:28,497 - INFO - Table : AirBnb hosts
+2025-04-08 00:36:28,890 - INFO - JOINED DATAFRAME
++-------+-----------+------+---+
+|host_id|nationality|gender|age|
++-------+-----------+------+---+
+|0      |USA        |M     |28 |
+|1      |USA        |F     |29 |
+|2      |China      |F     |31 |
+|3      |China      |M     |24 |
+|4      |Mali       |M     |30 |
+|5      |Mali       |F     |30 |
++-------+-----------+------+---+
 
-2025-04-05 02:48:24,052 - INFO - Final Data Frame
-2025-04-05 02:48:25,595 - INFO - Saving File : file:///C://Users/shree/PycharmProjects/TransformationsFromQueries/output-csv-budget-allocation
-+-------------+-------------------+
-|Project_title|Budget_Per_Employee|
-+-------------+-------------------+
-|Project8     |49284.0            |
-|Project15    |48116.0            |
-|Project10    |47587.0            |
-|Project19    |44986.0            |
-|Project3     |43909.0            |
-|Project13    |43238.0            |
-|Project6     |41611.0            |
-|Project5     |36268.0            |
-|Project7     |34003.0            |
-|Project2     |32487.0            |
-|Project9     |32341.0            |
-|Project14    |30014.0            |
-|Project1     |29498.0            |
-|Project16    |19922.0            |
-|Project20    |19497.0            |
-|Project17    |19061.0            |
-|Project4     |15776.0            |
-|Project11    |11705.0            |
-|Project12    |10468.0            |
-|Project18    |10302.0            |
-+-------------+-------------------+
+25/04/08 00:36:28 WARN ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
++-------+-----------+------+---+-------+------------+--------------+------+----------+-------+---------+
+|host_id|nationality|gender|age|host_id|apartment_id|apartment_type|n_beds|n_bedrooms|country|city     |
++-------+-----------+------+---+-------+------------+--------------+------+----------+-------+---------+
+|0      |USA        |M     |28 |0      |A1          |Room          |1     |1         |USA    |NewYork  |
+|0      |USA        |M     |28 |0      |A2          |Room          |1     |1         |USA    |NewJersey|
+|0      |USA        |M     |28 |0      |A3          |Room          |1     |1         |USA    |NewJersey|
+|1      |USA        |F     |29 |1      |A4          |Apartment     |2     |1         |USA    |Houston  |
+|1      |USA        |F     |29 |1      |A5          |Apartment     |2     |1         |USA    |LasVegas |
+|3      |China      |M     |24 |3      |A7          |Penthouse     |3     |3         |China  |Tianjin  |
+|3      |China      |M     |24 |3      |A8          |Penthouse     |5     |5         |China  |Beijing  |
+|4      |Mali       |M     |30 |4      |A9          |Apartment     |2     |1         |Mali   |Bamako   |
+|5      |Mali       |F     |30 |5      |A10         |Room          |3     |1         |Mali   |Segou    |
++-------+-----------+------+---+-------+------------+--------------+------+----------+-------+---------+
 
-2025-04-05 02:48:26,713 - INFO - Spark Application End
+2025-04-08 00:36:30,594 - INFO - Final Result : 
++-----------+----------+
+|Nationality|No_Of_Beds|
++-----------+----------+
+|China      |8         |
+|USA        |7         |
+|Mali       |5         |
++-----------+----------+
+
+2025-04-08 00:36:32,526 - INFO - End Application
