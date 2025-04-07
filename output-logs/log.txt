@@ -1,56 +1,66 @@
-2025-04-08 00:36:06,566 - INFO - Start Application
+2025-04-08 02:32:59,249 - INFO - Spark Application Start
 Setting default log level to "WARN".
 To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
-2025-04-08 00:36:24,771 - INFO - Table : AirBnb apartments
-[Stage 0:>                                                          (0 + 1) / 1]                                                                                +-------+------------+--------------+------+----------+-------+---------+
-|host_id|apartment_id|apartment_type|n_beds|n_bedrooms|country|city     |
-+-------+------------+--------------+------+----------+-------+---------+
-|0      |A1          |Room          |1     |1         |USA    |NewYork  |
-|0      |A2          |Room          |1     |1         |USA    |NewJersey|
-|0      |A3          |Room          |1     |1         |USA    |NewJersey|
-|1      |A4          |Apartment     |2     |1         |USA    |Houston  |
-|1      |A5          |Apartment     |2     |1         |USA    |LasVegas |
-|3      |A7          |Penthouse     |3     |3         |China  |Tianjin  |
-|3      |A8          |Penthouse     |5     |5         |China  |Beijing  |
-|4      |A9          |Apartment     |2     |1         |Mali   |Bamako   |
-|5      |A10         |Room          |3     |1         |Mali   |Segou    |
-+-------+------------+--------------+------+----------+-------+---------+
+2025-04-08 02:33:11,385 - INFO - Spark Session created Successfully!!!
+[Stage 0:>                                                          (0 + 1) / 1]                                                                                +-------+----------+------------+---------+
+|user_id|      date|amount_spent| day_name|
++-------+----------+------------+---------+
+|   1047|2023-01-01|       288.0|   Sunday|
+|   1099|2023-01-04|       803.0|Wednesday|
+|   1055|2023-01-07|       546.0| Saturday|
+|   1040|2023-01-10|       680.0|  Tuesday|
+|   1052|2023-01-13|       889.0|   Friday|
+|   1052|2023-01-13|       596.0|   Friday|
+|   1016|2023-01-16|       960.0|   Monday|
+|   1023|2023-01-17|       861.0|  Tuesday|
+|   1010|2023-01-19|       758.0| Thursday|
+|   1013|2023-01-19|       346.0| Thursday|
+|   1069|2023-01-21|       541.0| Saturday|
+|   1030|2023-01-22|       175.0|   Sunday|
+|   1034|2023-01-23|       707.0|   Monday|
+|   1019|2023-01-25|       253.0|Wednesday|
+|   1052|2023-01-25|       868.0|Wednesday|
+|   1095|2023-01-27|       424.0|   Friday|
+|   1017|2023-01-28|       755.0| Saturday|
+|   1010|2023-01-29|       615.0|   Sunday|
+|   1063|2023-01-31|       534.0|  Tuesday|
+|   1019|2023-02-03|       185.0|   Friday|
++-------+----------+------------+---------+
+only showing top 20 rows
 
-2025-04-08 00:36:28,497 - INFO - Table : AirBnb hosts
-2025-04-08 00:36:28,890 - INFO - JOINED DATAFRAME
-+-------+-----------+------+---+
-|host_id|nationality|gender|age|
-+-------+-----------+------+---+
-|0      |USA        |M     |28 |
-|1      |USA        |F     |29 |
-|2      |China      |F     |31 |
-|3      |China      |M     |24 |
-|4      |Mali       |M     |30 |
-|5      |Mali       |F     |30 |
-+-------+-----------+------+---+
++-------+----------+------------+---------+-----+
+|user_id|      date|amount_spent| day_name|month|
++-------+----------+------------+---------+-----+
+|   1047|2023-01-01|       288.0|   Sunday|    1|
+|   1099|2023-01-04|       803.0|Wednesday|    1|
+|   1055|2023-01-07|       546.0| Saturday|    1|
+|   1040|2023-01-10|       680.0|  Tuesday|    1|
+|   1052|2023-01-13|       889.0|   Friday|    1|
+|   1052|2023-01-13|       596.0|   Friday|    1|
+|   1016|2023-01-16|       960.0|   Monday|    1|
+|   1023|2023-01-17|       861.0|  Tuesday|    1|
+|   1010|2023-01-19|       758.0| Thursday|    1|
+|   1013|2023-01-19|       346.0| Thursday|    1|
+|   1069|2023-01-21|       541.0| Saturday|    1|
+|   1030|2023-01-22|       175.0|   Sunday|    1|
+|   1034|2023-01-23|       707.0|   Monday|    1|
+|   1019|2023-01-25|       253.0|Wednesday|    1|
+|   1052|2023-01-25|       868.0|Wednesday|    1|
+|   1095|2023-01-27|       424.0|   Friday|    1|
+|   1017|2023-01-28|       755.0| Saturday|    1|
+|   1010|2023-01-29|       615.0|   Sunday|    1|
+|   1063|2023-01-31|       534.0|  Tuesday|    1|
+|   1019|2023-02-03|       185.0|   Friday|    2|
++-------+----------+------------+---------+-----+
+only showing top 20 rows
 
-25/04/08 00:36:28 WARN ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
-+-------+-----------+------+---+-------+------------+--------------+------+----------+-------+---------+
-|host_id|nationality|gender|age|host_id|apartment_id|apartment_type|n_beds|n_bedrooms|country|city     |
-+-------+-----------+------+---+-------+------------+--------------+------+----------+-------+---------+
-|0      |USA        |M     |28 |0      |A1          |Room          |1     |1         |USA    |NewYork  |
-|0      |USA        |M     |28 |0      |A2          |Room          |1     |1         |USA    |NewJersey|
-|0      |USA        |M     |28 |0      |A3          |Room          |1     |1         |USA    |NewJersey|
-|1      |USA        |F     |29 |1      |A4          |Apartment     |2     |1         |USA    |Houston  |
-|1      |USA        |F     |29 |1      |A5          |Apartment     |2     |1         |USA    |LasVegas |
-|3      |China      |M     |24 |3      |A7          |Penthouse     |3     |3         |China  |Tianjin  |
-|3      |China      |M     |24 |3      |A8          |Penthouse     |5     |5         |China  |Beijing  |
-|4      |Mali       |M     |30 |4      |A9          |Apartment     |2     |1         |Mali   |Bamako   |
-|5      |Mali       |F     |30 |5      |A10         |Room          |3     |1         |Mali   |Segou    |
-+-------+-----------+------+---+-------+------------+--------------+------+----------+-------+---------+
+2025-04-08 02:33:18,794 - INFO - Spark Application End
++----------+-------------------+
+|WeekNumber|avg_amount_per_user|
++----------+-------------------+
+|         4|              424.0|
+|         2|              742.5|
+|         5|              590.0|
+|         8|              259.0|
++----------+-------------------+
 
-2025-04-08 00:36:30,594 - INFO - Final Result : 
-+-----------+----------+
-|Nationality|No_Of_Beds|
-+-----------+----------+
-|China      |8         |
-|USA        |7         |
-|Mali       |5         |
-+-----------+----------+
-
-2025-04-08 00:36:32,526 - INFO - End Application
