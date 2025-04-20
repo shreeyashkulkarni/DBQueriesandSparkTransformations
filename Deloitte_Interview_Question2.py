@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col,lit,split
+from pyspark.sql.functions import col,lit,split,when,size
 import logging
 
 logging.basicConfig(level=logging.INFO,format = '%(asctime)s - %(levelname)s - %(message)s')
@@ -33,9 +33,16 @@ if __name__ == '__main__':
     df = df.withColumn("name_parts",split(col("Full_Name"),"\|"))
     df.show(truncate=False)
 
-    
 
 
+
+    finaldf = df.withColumn("First_Name",col('name_parts').getItem(0))\
+                .withColumn("Middle_Name",when(size(col("name_parts")) == 3,col("name_parts").getItem(1)).otherwise(""))\
+                .withColumn("Last_Name",when(size(col("name_parts")) == 3,col("name_parts").getItem(2))\
+                                                .when(size(col("name_parts")) == 2,col("name_parts").getItem(1))\
+                                                .otherwise(""))
+
+    finaldf.show(truncate=False)
 
 
 

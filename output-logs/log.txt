@@ -1,24 +1,27 @@
-2025-04-18 13:02:04,127 - INFO - Start Application
+2025-04-20 22:52:15,731 - INFO - Start Application
 Setting default log level to "WARN".
 To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
-2025-04-18 13:02:17,701 - INFO - SparkSession created successfully
-[Stage 0:>                                                          (0 + 1) / 1]                                                                                [Stage 1:>                                                          (0 + 4) / 4]                                                                                25/04/18 13:02:28 WARN ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
-[Stage 2:>                                                          (0 + 7) / 7]                                                                                +-----------------+
+2025-04-20 22:52:33,278 - INFO - SparkSession created successfully
+[Stage 0:>                                                          (0 + 0) / 1][Stage 0:>                                                          (0 + 1) / 1]                                                                                [Stage 1:>                                                          (0 + 4) / 4]25/04/20 22:52:42 WARN ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
+                                                                                [Stage 2:>                                                          (0 + 7) / 7]                                                                                +-----------------+
 |        Full_Name|
 +-----------------+
 |Rohit|Kumar|Gupta|
 |      Rohit|Gupta|
 +-----------------+
 
-[Stage 3:>                                                        (0 + 12) / 12]                                                                                2025-04-18 13:02:43,701 - INFO - ['Rohit', 'Kumar', 'Gupta']
-[Stage 4:>                                                          (0 + 1) / 1]                                                                                [Stage 5:>                                                          (0 + 4) / 4]                                                                                [Stage 6:>                                                          (0 + 7) / 7][Stage 6:==================================================>        (6 + 1) / 7]                                                                                +-----------------+---------------------+
+[Stage 3:>                                                          (0 + 1) / 1]                                                                                [Stage 4:>                                                          (0 + 4) / 4]                                                                                [Stage 5:>                                                          (0 + 7) / 7]                                                                                +-----------------+---------------------+
 |Full_Name        |name_parts           |
 +-----------------+---------------------+
 |Rohit|Kumar|Gupta|[Rohit, Kumar, Gupta]|
 |Rohit|Gupta      |[Rohit, Gupta]       |
 +-----------------+---------------------+
 
-2025-04-18 13:02:53,410 - INFO - End Application
-SUCCESS: The process with PID 14792 (child process of PID 16532) has been terminated.
-SUCCESS: The process with PID 16532 (child process of PID 10044) has been terminated.
-SUCCESS: The process with PID 10044 (child process of PID 19116) has been terminated.
+[Stage 6:>                                                          (0 + 1) / 1]                                                                                [Stage 7:>                                                          (0 + 4) / 4][Stage 7:=============================>                             (2 + 2) / 4]                                                                                [Stage 8:>                                                          (0 + 7) / 7][Stage 8:==================================================>        (6 + 1) / 7]                                                                                +-----------------+---------------------+----------+-----------+---------+
+2025-04-20 22:53:06,081 - INFO - End Application
+|Full_Name        |name_parts           |First_Name|Middle_Name|Last_Name|
++-----------------+---------------------+----------+-----------+---------+
+|Rohit|Kumar|Gupta|[Rohit, Kumar, Gupta]|Rohit     |Kumar      |Gupta    |
+|Rohit|Gupta      |[Rohit, Gupta]       |Rohit     |           |Gupta    |
++-----------------+---------------------+----------+-----------+---------+
+
