@@ -1,66 +1,24 @@
-2025-04-08 02:32:59,249 - INFO - Spark Application Start
+2025-04-18 13:02:04,127 - INFO - Start Application
 Setting default log level to "WARN".
 To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
-2025-04-08 02:33:11,385 - INFO - Spark Session created Successfully!!!
-[Stage 0:>                                                          (0 + 1) / 1]                                                                                +-------+----------+------------+---------+
-|user_id|      date|amount_spent| day_name|
-+-------+----------+------------+---------+
-|   1047|2023-01-01|       288.0|   Sunday|
-|   1099|2023-01-04|       803.0|Wednesday|
-|   1055|2023-01-07|       546.0| Saturday|
-|   1040|2023-01-10|       680.0|  Tuesday|
-|   1052|2023-01-13|       889.0|   Friday|
-|   1052|2023-01-13|       596.0|   Friday|
-|   1016|2023-01-16|       960.0|   Monday|
-|   1023|2023-01-17|       861.0|  Tuesday|
-|   1010|2023-01-19|       758.0| Thursday|
-|   1013|2023-01-19|       346.0| Thursday|
-|   1069|2023-01-21|       541.0| Saturday|
-|   1030|2023-01-22|       175.0|   Sunday|
-|   1034|2023-01-23|       707.0|   Monday|
-|   1019|2023-01-25|       253.0|Wednesday|
-|   1052|2023-01-25|       868.0|Wednesday|
-|   1095|2023-01-27|       424.0|   Friday|
-|   1017|2023-01-28|       755.0| Saturday|
-|   1010|2023-01-29|       615.0|   Sunday|
-|   1063|2023-01-31|       534.0|  Tuesday|
-|   1019|2023-02-03|       185.0|   Friday|
-+-------+----------+------------+---------+
-only showing top 20 rows
+2025-04-18 13:02:17,701 - INFO - SparkSession created successfully
+[Stage 0:>                                                          (0 + 1) / 1]                                                                                [Stage 1:>                                                          (0 + 4) / 4]                                                                                25/04/18 13:02:28 WARN ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
+[Stage 2:>                                                          (0 + 7) / 7]                                                                                +-----------------+
+|        Full_Name|
++-----------------+
+|Rohit|Kumar|Gupta|
+|      Rohit|Gupta|
++-----------------+
 
-+-------+----------+------------+---------+-----+
-|user_id|      date|amount_spent| day_name|month|
-+-------+----------+------------+---------+-----+
-|   1047|2023-01-01|       288.0|   Sunday|    1|
-|   1099|2023-01-04|       803.0|Wednesday|    1|
-|   1055|2023-01-07|       546.0| Saturday|    1|
-|   1040|2023-01-10|       680.0|  Tuesday|    1|
-|   1052|2023-01-13|       889.0|   Friday|    1|
-|   1052|2023-01-13|       596.0|   Friday|    1|
-|   1016|2023-01-16|       960.0|   Monday|    1|
-|   1023|2023-01-17|       861.0|  Tuesday|    1|
-|   1010|2023-01-19|       758.0| Thursday|    1|
-|   1013|2023-01-19|       346.0| Thursday|    1|
-|   1069|2023-01-21|       541.0| Saturday|    1|
-|   1030|2023-01-22|       175.0|   Sunday|    1|
-|   1034|2023-01-23|       707.0|   Monday|    1|
-|   1019|2023-01-25|       253.0|Wednesday|    1|
-|   1052|2023-01-25|       868.0|Wednesday|    1|
-|   1095|2023-01-27|       424.0|   Friday|    1|
-|   1017|2023-01-28|       755.0| Saturday|    1|
-|   1010|2023-01-29|       615.0|   Sunday|    1|
-|   1063|2023-01-31|       534.0|  Tuesday|    1|
-|   1019|2023-02-03|       185.0|   Friday|    2|
-+-------+----------+------------+---------+-----+
-only showing top 20 rows
+[Stage 3:>                                                        (0 + 12) / 12]                                                                                2025-04-18 13:02:43,701 - INFO - ['Rohit', 'Kumar', 'Gupta']
+[Stage 4:>                                                          (0 + 1) / 1]                                                                                [Stage 5:>                                                          (0 + 4) / 4]                                                                                [Stage 6:>                                                          (0 + 7) / 7][Stage 6:==================================================>        (6 + 1) / 7]                                                                                +-----------------+---------------------+
+|Full_Name        |name_parts           |
++-----------------+---------------------+
+|Rohit|Kumar|Gupta|[Rohit, Kumar, Gupta]|
+|Rohit|Gupta      |[Rohit, Gupta]       |
++-----------------+---------------------+
 
-2025-04-08 02:33:18,794 - INFO - Spark Application End
-+----------+-------------------+
-|WeekNumber|avg_amount_per_user|
-+----------+-------------------+
-|         4|              424.0|
-|         2|              742.5|
-|         5|              590.0|
-|         8|              259.0|
-+----------+-------------------+
-
+2025-04-18 13:02:53,410 - INFO - End Application
+SUCCESS: The process with PID 14792 (child process of PID 16532) has been terminated.
+SUCCESS: The process with PID 16532 (child process of PID 10044) has been terminated.
+SUCCESS: The process with PID 10044 (child process of PID 19116) has been terminated.
