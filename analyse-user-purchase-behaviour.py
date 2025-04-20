@@ -53,77 +53,59 @@ if __name__=='__main__':
     logger.info("Spark Application Start")
 
 
-    # try:
-    #     spark = SparkSession.builder.appName("analyse-user-purchase-behaviour")\
-    #             .config("spark.ui.port","4041")\
-    #             .config("spark.jars","file:///C://Users/shree/Downloads/postgresql-42.7.4.jar")\
-    #             .master("local[*]")\
-    #             .getOrCreate()
-    #
-    #     spark.sparkContext.setLogLevel("WARN")
-    #
-    #     logger.info("Spark Session created Successfully!!!")
-    #
-    # except Exception as e:
-    #     logger.error("Failed to Create Sparksession")
-    #     raise
+    try:
+        spark = SparkSession.builder.appName("analyse-user-purchase-behaviour")\
+                .config("spark.ui.port","4041")\
+                .config("spark.jars","file:///C://Users/shree/Downloads/postgresql-42.7.4.jar")\
+                .master("local[*]")\
+                .getOrCreate()
 
+        spark.sparkContext.setLogLevel("WARN")
 
-    dict = {"a":"shr","b":"k"}
+        logger.info("Spark Session created Successfully!!!")
+
+    except Exception as e:
+        logger.error("Failed to Create Sparksession")
+        raise
 
 
 
-    dict["a"] = "xyz"
+    jdbc_url  = "jdbc:postgresql://localhost:5432/postgres"
 
-    print(dict)
+    query = "(select * from user_purchases) AS query"
 
+    connection_properties = {
 
-    tp = (1,2,3,4,5)
-
-
-
-    print(tp)
-
+        "user":"postgres",
+        "password":"Pkts1t4j11@",
+        "driver":"org.postgresql.Driver"
 
 
+    }
+
+    user_purchases_df = spark.read.jdbc(url=jdbc_url,table=query,properties=connection_properties)
+    user_purchases_df.show()
+
+    first_quarter_records_df = user_purchases_df\
+                                .withColumn("month",month(col("date")))\
+                                .filter((col("month") >= 1) & (col("month") <= 4))
+
+    first_quarter_records_df.show()
 
 
-    # jdbc_url  = "jdbc:postgresql://localhost:5432/postgres"
-    #
-    # query = "(select * from user_purchases) AS query"
-    #
-    # connection_properties = {
-    #
-    #     "user":"postgres",
-    #     "password":"Pkts1t4j11@",
-    #     "driver":"org.postgresql.Driver"
-    #
-    #
-    # }
-    #
-    # user_purchases_df = spark.read.jdbc(url=jdbc_url,table=query,properties=connection_properties)
-    # user_purchases_df.show()
-    #
-    # first_quarter_records_df = user_purchases_df\
-    #                             .withColumn("month",month(col("date")))\
-    #                             .filter((col("month") >= 1) & (col("month") <= 4))
-    #
-    # first_quarter_records_df.show()
-    #
-    #
-    # final_df = first_quarter_records_df\
-    #             .groupBy(col("date"),col("day_name"))\
-    #             .agg(weekofyear(col("date")).alias("WeekNumber"),(round(sum(col("amount_spent"))/count(col("user_id")),2)).alias("avg_amount_per_user"))\
-    #             .where(col("day_name") == 'Friday')\
-    #             .select(col("WeekNumber"),col("avg_amount_per_user"))
-    #
-    # final_df.show()
-    #
-    # final_df.repartition(1).write\
-    # .option("header",True)\
-    # .option("mode","overwrite")\
-    # .format("parquet")\
-    # .save("file:///C://Users/shree/PycharmProjects/TransformationsFromQueries/output-csv-analyse-user-purchase-behaviour")
+    final_df = first_quarter_records_df\
+                .groupBy(col("date"),col("day_name"))\
+                .agg(weekofyear(col("date")).alias("WeekNumber"),(round(sum(col("amount_spent"))/count(col("user_id")),2)).alias("avg_amount_per_user"))\
+                .where(col("day_name") == 'Friday')\
+                .select(col("WeekNumber"),col("avg_amount_per_user"))
+
+    final_df.show()
+
+    final_df.repartition(1).write\
+    .option("header",True)\
+    .option("mode","overwrite")\
+    .format("parquet")\
+    .save("file:///C://Users/shree/PycharmProjects/TransformationsFromQueries/output-csv-analyse-user-purchase-behaviour")
 
 
     logger.info("Spark Application End")
