@@ -1,27 +1,73 @@
-2025-04-20 22:52:15,731 - INFO - Start Application
+2025-05-14 02:30:28,486 - INFO - Start Spark Application 
 Setting default log level to "WARN".
 To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
-2025-04-20 22:52:33,278 - INFO - SparkSession created successfully
-[Stage 0:>                                                          (0 + 0) / 1][Stage 0:>                                                          (0 + 1) / 1]                                                                                [Stage 1:>                                                          (0 + 4) / 4]25/04/20 22:52:42 WARN ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
-                                                                                [Stage 2:>                                                          (0 + 7) / 7]                                                                                +-----------------+
-|        Full_Name|
-+-----------------+
-|Rohit|Kumar|Gupta|
-|      Rohit|Gupta|
-+-----------------+
+2025-05-14 02:30:45,655 - INFO - Spark Session Created Successfully 
+2025-05-14 02:30:45,655 - INFO - TABLE : excel_sql_inventory_data 
+root
+ |-- product_id: integer (nullable = true)
+ |-- product_name: string (nullable = true)
+ |-- product_type: string (nullable = true)
+ |-- unit: string (nullable = true)
+ |-- price_unit: double (nullable = true)
+ |-- wholesale: double (nullable = true)
+ |-- current_inventory: integer (nullable = true)
 
-[Stage 3:>                                                          (0 + 1) / 1]                                                                                [Stage 4:>                                                          (0 + 4) / 4]                                                                                [Stage 5:>                                                          (0 + 7) / 7]                                                                                +-----------------+---------------------+
-|Full_Name        |name_parts           |
-+-----------------+---------------------+
-|Rohit|Kumar|Gupta|[Rohit, Kumar, Gupta]|
-|Rohit|Gupta      |[Rohit, Gupta]       |
-+-----------------+---------------------+
+[Stage 0:>                                                          (0 + 1) / 1]                                                                                +----------+------------+------------+----+----------+---------+-----------------+
+2025-05-14 02:30:52,215 - INFO - TABLE : excel_sql_transaction_data 
+|product_id|product_name|product_type|unit|price_unit|wholesale|current_inventory|
++----------+------------+------------+----+----------+---------+-----------------+
+|1         |strawberry  |produce     |lb  |3.28      |1.77     |13               |
+|2         |apple_fuji  |produce     |lb  |1.44      |0.43     |2                |
+|3         |orange      |produce     |lb  |1.02      |0.37     |2                |
+|4         |clementines |produce     |lb  |1.19      |0.44     |44               |
+|5         |blood_orange|produce     |lb  |3.86      |1.66     |19               |
++----------+------------+------------+----+----------+---------+-----------------+
 
-[Stage 6:>                                                          (0 + 1) / 1]                                                                                [Stage 7:>                                                          (0 + 4) / 4][Stage 7:=============================>                             (2 + 2) / 4]                                                                                [Stage 8:>                                                          (0 + 7) / 7][Stage 8:==================================================>        (6 + 1) / 7]                                                                                +-----------------+---------------------+----------+-----------+---------+
-2025-04-20 22:53:06,081 - INFO - End Application
-|Full_Name        |name_parts           |First_Name|Middle_Name|Last_Name|
-+-----------------+---------------------+----------+-----------+---------+
-|Rohit|Kumar|Gupta|[Rohit, Kumar, Gupta]|Rohit     |Kumar      |Gupta    |
-|Rohit|Gupta      |[Rohit, Gupta]       |Rohit     |           |Gupta    |
-+-----------------+---------------------+----------+-----------+---------+
+root
+ |-- transaction_id: integer (nullable = true)
+ |-- time: timestamp (nullable = true)
+ |-- product_id: integer (nullable = true)
+
++--------------+-------------------+----------+
+|transaction_id|time               |product_id|
++--------------+-------------------+----------+
+|153           |2016-01-06 08:57:52|1         |
+|91            |2016-01-07 12:17:27|1         |
+|31            |2016-01-05 13:19:25|1         |
+|24            |2016-01-03 10:47:44|3         |
+|4             |2016-01-06 17:57:42|3         |
+|163           |2016-01-03 10:11:22|3         |
+|92            |2016-01-08 12:03:20|2         |
+|32            |2016-01-04 19:37:14|4         |
+|253           |2016-01-06 14:15:20|5         |
+|118           |2016-01-06 14:27:33|5         |
++--------------+-------------------+----------+
+
+2025-05-14 02:30:52,575 - INFO - INNER JOIN on excel_sql_inventory_data and excel_sql_transaction_data 
++----------+------------+------------+----+----------+---------+-----------------+--------------+-------------------+----------+
+|product_id|product_name|product_type|unit|price_unit|wholesale|current_inventory|transaction_id|time               |product_id|
++----------+------------+------------+----+----------+---------+-----------------+--------------+-------------------+----------+
+|1         |strawberry  |produce     |lb  |3.28      |1.77     |13               |153           |2016-01-06 08:57:52|1         |
+|1         |strawberry  |produce     |lb  |3.28      |1.77     |13               |91            |2016-01-07 12:17:27|1         |
+|1         |strawberry  |produce     |lb  |3.28      |1.77     |13               |31            |2016-01-05 13:19:25|1         |
+|2         |apple_fuji  |produce     |lb  |1.44      |0.43     |2                |92            |2016-01-08 12:03:20|2         |
+|3         |orange      |produce     |lb  |1.02      |0.37     |2                |24            |2016-01-03 10:47:44|3         |
+|3         |orange      |produce     |lb  |1.02      |0.37     |2                |4             |2016-01-06 17:57:42|3         |
+|3         |orange      |produce     |lb  |1.02      |0.37     |2                |163           |2016-01-03 10:11:22|3         |
+|4         |clementines |produce     |lb  |1.19      |0.44     |44               |32            |2016-01-04 19:37:14|4         |
+|5         |blood_orange|produce     |lb  |3.86      |1.66     |19               |253           |2016-01-06 14:15:20|5         |
+|5         |blood_orange|produce     |lb  |3.86      |1.66     |19               |118           |2016-01-06 14:27:33|5         |
++----------+------------+------------+----+----------+---------+-----------------+--------------+-------------------+----------+
+
+2025-05-14 02:30:53,969 - INFO - FINAL DATAFRAME 
+2025-05-14 02:30:54,673 - INFO - End Spark Application 
++------------+------------------+
+|product_name|No_of_Transactions|
++------------+------------------+
+|strawberry  |3                 |
+|apple_fuji  |1                 |
+|orange      |3                 |
+|clementines |1                 |
+|blood_orange|2                 |
++------------+------------------+
 

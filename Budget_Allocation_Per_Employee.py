@@ -128,4 +128,9 @@ if __name__=='__main__':
 
 
 
+    var = input("Enter a Number")
+
+
+
+
     logger.info("Spark Application End")
