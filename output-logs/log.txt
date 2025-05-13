@@ -1,8 +1,8 @@
-2025-05-14 02:30:28,486 - INFO - Start Spark Application 
+2025-05-14 02:38:59,596 - INFO - Start Spark Application 
 Setting default log level to "WARN".
 To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
-2025-05-14 02:30:45,655 - INFO - Spark Session Created Successfully 
-2025-05-14 02:30:45,655 - INFO - TABLE : excel_sql_inventory_data 
+2025-05-14 02:39:17,774 - INFO - Spark Session Created Successfully 
+2025-05-14 02:39:17,775 - INFO - TABLE : excel_sql_inventory_data 
 root
  |-- product_id: integer (nullable = true)
  |-- product_name: string (nullable = true)
@@ -12,8 +12,8 @@ root
  |-- wholesale: double (nullable = true)
  |-- current_inventory: integer (nullable = true)
 
-[Stage 0:>                                                          (0 + 1) / 1]                                                                                +----------+------------+------------+----+----------+---------+-----------------+
-2025-05-14 02:30:52,215 - INFO - TABLE : excel_sql_transaction_data 
+[Stage 0:>                                                          (0 + 1) / 1]                                                                                2025-05-14 02:39:24,390 - INFO - TABLE : excel_sql_transaction_data 
++----------+------------+------------+----+----------+---------+-----------------+
 |product_id|product_name|product_type|unit|price_unit|wholesale|current_inventory|
 +----------+------------+------------+----+----------+---------+-----------------+
 |1         |strawberry  |produce     |lb  |3.28      |1.77     |13               |
@@ -29,6 +29,7 @@ root
  |-- product_id: integer (nullable = true)
 
 +--------------+-------------------+----------+
+2025-05-14 02:39:24,768 - INFO - INNER JOIN on excel_sql_inventory_data and excel_sql_transaction_data 
 |transaction_id|time               |product_id|
 +--------------+-------------------+----------+
 |153           |2016-01-06 08:57:52|1         |
@@ -43,7 +44,7 @@ root
 |118           |2016-01-06 14:27:33|5         |
 +--------------+-------------------+----------+
 
-2025-05-14 02:30:52,575 - INFO - INNER JOIN on excel_sql_inventory_data and excel_sql_transaction_data 
+25/05/14 02:39:25 WARN ProcfsMetricsGetter: Exception when trying to compute pagesize, as a result reporting of ProcessTree metrics is stopped
 +----------+------------+------------+----+----------+---------+-----------------+--------------+-------------------+----------+
 |product_id|product_name|product_type|unit|price_unit|wholesale|current_inventory|transaction_id|time               |product_id|
 +----------+------------+------------+----+----------+---------+-----------------+--------------+-------------------+----------+
@@ -59,8 +60,7 @@ root
 |5         |blood_orange|produce     |lb  |3.86      |1.66     |19               |118           |2016-01-06 14:27:33|5         |
 +----------+------------+------------+----+----------+---------+-----------------+--------------+-------------------+----------+
 
-2025-05-14 02:30:53,969 - INFO - FINAL DATAFRAME 
-2025-05-14 02:30:54,673 - INFO - End Spark Application 
+2025-05-14 02:39:26,340 - INFO - FINAL DATAFRAME 
 +------------+------------------+
 |product_name|No_of_Transactions|
 +------------+------------------+
@@ -71,3 +71,5 @@ root
 |blood_orange|2                 |
 +------------+------------------+
 
+25/05/14 02:39:27 WARN ParseMode: overwrite is not a valid parse mode. Using PERMISSIVE.
+2025-05-14 02:39:27,875 - INFO - End Spark Application 

@@ -154,6 +154,11 @@ if __name__=="__main__":
 
         finaldf.show(truncate = False)
 
+        finaldf.repartition(1).write\
+            .option("header",True)\
+            .option("mode","overwrite")\
+            .format("csv") \
+            .save("file:///C://Users/shree/PycharmProjects/TransformationsFromQueries/output-csv-no-of-transacations")
 
 
 
